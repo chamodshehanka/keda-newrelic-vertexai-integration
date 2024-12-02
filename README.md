@@ -18,4 +18,4 @@
 7. Create a new Relic application.
 8. Install the New Relic Infrastructure agent on the GKE cluster.
 9. Deploy the New Relic Infrastructure agent on the GKE cluster.
-10. 
+10. Configure New Relic for your application.
