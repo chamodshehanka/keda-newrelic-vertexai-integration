@@ -24,3 +24,5 @@ go.work.sum
 # env file
 .env
 .idea/
+configs/config.yaml
+k8s/app/secrets.yaml

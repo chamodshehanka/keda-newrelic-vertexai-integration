@@ -1,0 +1,4 @@
+# config.yaml
+newrelic:
+  licenseKey: your_new_relic_license_key
+  clusterName: your_cluster_name
