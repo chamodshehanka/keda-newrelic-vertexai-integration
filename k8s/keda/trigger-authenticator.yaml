@@ -1,0 +1,13 @@
+apiVersion: keda.sh/v1alpha1
+kind: TriggerAuthentication
+metadata:
+  name: newrelic-auth
+  namespace: default
+spec:
+  secretTargetRef:
+    - parameter: accountId
+      name: newrelic-secret
+      key: accountId
+    - parameter: queryKey
+      name: newrelic-secret
+      key: queryKey

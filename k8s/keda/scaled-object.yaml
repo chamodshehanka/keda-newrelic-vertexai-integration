@@ -1,0 +1,28 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: devfest-app-scaledobject
+  namespace: default
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: devfest-app-2024 # Your application deployment name
+  minReplicaCount: 1 # Minimum number of replicas
+  maxReplicaCount: 10 # Maximum number of replicas
+  pollingInterval: 30  # Interval to check metrics (in seconds)
+  cooldownPeriod: 300  # Scale down after 5 minutes of inactivity
+  triggers:
+    - type: new-relic
+      metadata:
+        accountId: "6225327" # Replace with your Account ID
+        queryKey: "NRAK-OD9DAW51YAW7LVC5CP5G67245T8"
+        region: "US" # Set your New Relic region (US/EU)
+        query: |
+          SELECT rate(count(*), 1 minute) 
+          FROM Transaction 
+          WHERE appName = 'devfest-app-2024' 
+          SINCE 5 minute ago
+        threshold: "5" # Set the threshold (e.g., 5 requests/min)
+      authenticationRef:
+        name: newrelic-auth
