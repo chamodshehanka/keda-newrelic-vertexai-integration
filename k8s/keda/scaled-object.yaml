@@ -1,0 +1,25 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: devfest-app-scaledobject
+  namespace: default
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: devfest-app                 # Your application deployment name
+  minReplicaCount: 1                  # Minimum number of replicas
+  maxReplicaCount: 10                 # Maximum number of replicas
+  triggers:
+  - type: new-relic
+    metadata:
+      accountId: "<YOUR_NEWRELIC_ACCOUNT_ID>"   # Replace with your Account ID
+      region: "US"                             # Set your New Relic region (US/EU)
+      query: |
+        SELECT rate(count(*), 1 minute) 
+        FROM Transaction 
+        WHERE appName = 'devfest-app-2024' 
+        SINCE 5 minute ago
+      threshold: "5"                           # Set the threshold (e.g., 5 requests/min)
+    authenticationRef:
+      name: newrelic-auth
