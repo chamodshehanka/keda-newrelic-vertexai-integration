@@ -4,6 +4,10 @@ metadata:
   name: newrelic-auth
   namespace: default
 spec:
-  metadata:
-    accountId: "6225327"     # Replace with your Account ID
-    queryKey: "NRAK-OD9DAW51YAW7LVC5CP5G67245T8"       # Replace with your Query Key
+  secretTargetRef:
+    - parameter: accountId
+      name: newrelic-secret
+      key: accountId
+    - parameter: queryKey
+      name: newrelic-secret
+      key: queryKey
