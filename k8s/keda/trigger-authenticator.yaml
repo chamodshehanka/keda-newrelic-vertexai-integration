@@ -5,9 +5,9 @@ metadata:
   namespace: default
 spec:
   secretTargetRef:
-    - parameter: accountId
+    - parameter: account
       name: newrelic-secret
-      key: accountId
+      key: account
     - parameter: queryKey
       name: newrelic-secret
       key: queryKey
