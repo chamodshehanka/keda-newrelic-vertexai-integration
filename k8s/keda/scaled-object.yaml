@@ -27,3 +27,11 @@ spec:
         threshold: "5" # Set the threshold (e.g., 5 requests/min)
       authenticationRef:
         name: newrelic-auth
+    - type: external
+      metadata:
+        # The URL to your API
+        externalURL: "http://devfest-prediction-api.default.svc.cluster.local/get-prediction"
+        # The metric name you want to scale on (in this case, predicted traffic)
+        metricName: "predicted_traffic"
+        # The threshold value for scaling
+        threshold: "50"
