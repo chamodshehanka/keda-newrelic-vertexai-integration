@@ -15,10 +15,11 @@ spec:
   triggers:
     - type: new-relic
       metadata:
-        accountId: "6225327" # Replace with your Account ID
+        account: "6225327" # Replace with your Account ID
         queryKey: "NRAK-OD9DAW51YAW7LVC5CP5G67245T8"
         region: "US" # Set your New Relic region (US/EU)
-        query: |
+        noDataError: "true" # Set to true to trigger when no data is returned
+        nrql: |
           SELECT rate(count(*), 1 minute) 
           FROM Transaction 
           WHERE appName = 'devfest-app-2024' 
