@@ -29,5 +29,5 @@ spec:
         - name: NEW_RELIC_LICENSE_KEY
           valueFrom:
             secretKeyRef:
-              name: newrelic-secret
+              name: newrelic-app-secret
               key: licenseKey

@@ -144,6 +144,11 @@ spec:
    - Use tools like `k6` or `wrk` to send traffic to your application.
    - Verify if scaling happens as per the defined thresholds.
 
+   ```bash
+
+    k6 run -e BASE_URL=http://your-base-url loadtest.js
+    ```
+
 2. **Monitor Metrics**
 
    - Check the logs for KEDA:
