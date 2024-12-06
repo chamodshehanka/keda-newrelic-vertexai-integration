@@ -27,15 +27,15 @@ fi
 echo "CLUSTER_NAME is set."
 
 # Install KEDA
-# echo "Installing KEDA..."
-# helm repo add kedacore https://kedacore.github.io/charts
-# helm repo update
-# helm install keda kedacore/keda --namespace keda --create-namespace
+echo "Installing KEDA..."
+helm repo add kedacore https://kedacore.github.io/charts
+helm repo update
+helm install keda kedacore/keda --namespace keda --create-namespace
 
 # Install New Relic
 echo "Installing New Relic..."
-# helm repo add newrelic https://helm-charts.newrelic.com
-# helm repo update
+helm repo add newrelic https://helm-charts.newrelic.com
+helm repo update
 helm install newrelic newrelic/nri-bundle \
     --set global.licenseKey=$NEW_RELIC_LICENSE_KEY \
     --set global.cluster=$CLUSTER_NAME \

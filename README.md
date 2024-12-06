@@ -202,3 +202,9 @@ FROM Transaction
 WHERE appName = 'devfest-app-2024'
 SINCE 5 minute ago
 ```
+
+```
+curl -H "Accept: application/json" \
+     -H "X-Query-Key: NRAK-<KEY>" \
+     "https://insights-api.newrelic.com/v1/accounts/<ACCOUNT_ID>/query?nrql=SELECT%20rate%28count%28*%29%2C%201%20minute%29%20FROM%20Transaction%20WHERE%20appName%20%3D%20%27devfest-app-2024%27%20SINCE%205%20minutes%20ago"
+```
