@@ -1,0 +1,35 @@
+# Exclude Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Exclude virtual environment directories
+env/
+venv/
+*.env
+*.venv
+
+# Exclude development and test artifacts
+*.log
+*.bak
+*.swp
+.coverage
+*.pytest_cache/
+tests/
+.tox/
+
+# Exclude configuration and environment files with sensitive data
+*.env
+*.secret
+
+# Exclude IDE and editor settings
+.vscode/
+.idea/
+*.iml
+
+# Exclude build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
