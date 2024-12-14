@@ -10,5 +10,4 @@ COPY . /app
 
 EXPOSE 8080
 
-# CMD ["gunicorn", "--bind=0.0.0.0", "--timeout", "600", "main:app"]
 CMD ["python", "app.py"]
