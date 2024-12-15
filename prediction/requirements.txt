@@ -1,0 +1,4 @@
+Flask==3.1.0
+Flask-Cors==5.0.0
+google-cloud-aiplatform==1.74.0
+requests==2.32.3
